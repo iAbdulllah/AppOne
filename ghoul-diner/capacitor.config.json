@@ -1,0 +1,6 @@
+{
+  "appId": "com.ghouldiner.game",
+  "appName": "Ghoul Diner",
+  "webDir": "www",
+  "android": { "backgroundColor": "#160f22" }
+}

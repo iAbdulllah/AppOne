@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ckb" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#160f22">
+<title>Ghoul Diner</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="game"></canvas>
+
+<div id="hud">
+  <div class="pill" id="coinsPill">🪙 <span id="coins">0</span></div>
+  <div class="pill lvl"><span id="lvlLabel">Lv</span> <b id="level">1</b><div class="bar"><i id="xpbar"></i></div></div>
+  <div class="pill">⭐ <span id="rating">0</span></div>
+</div>
+
+<div id="buildbar" hidden>
+  <span id="buildHint"></span>
+  <div class="bb-btns">
+    <button id="bbMove" class="btn"></button>
+    <button id="bbSell" class="btn danger"></button>
+    <button id="bbDone" class="btn primary"></button>
+  </div>
+</div>
+
+<nav id="bottombar">
+  <button data-act="shop"><span>🛒</span><small data-t="shop"></small></button>
+  <button data-act="build"><span>🔨</span><small data-t="build"></small></button>
+  <button data-act="staff"><span>💀</span><small data-t="staff"></small></button>
+  <button data-act="settings"><span>⚙️</span><small data-t="settings"></small></button>
+</nav>
+
+<div id="modal" hidden>
+  <div class="sheet">
+    <header><h2 id="mtitle"></h2><button id="mclose" aria-label="close">✕</button></header>
+    <div id="mtabs"></div>
+    <div id="mbody"></div>
+  </div>
+</div>
+
+<div id="toast"></div>
+<script src="game.js"></script>
+</body>
+</html>
