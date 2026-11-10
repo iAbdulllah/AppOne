@@ -1,10 +1,8 @@
 name: Build Ghoul Diner APK
 
+# Manual only: run from the Actions tab ("Run workflow") when an APK is wanted.
+# Pushes do NOT trigger a build, so no Actions minutes are used automatically.
 on:
-  push:
-    paths:
-      - 'ghoul-diner/**'
-      - '.github/workflows/android-apk.yml'
   workflow_dispatch:
 
 jobs:
