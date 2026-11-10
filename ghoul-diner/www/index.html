@@ -27,10 +27,19 @@
   </div>
 </div>
 
+<div id="visitbar" hidden>
+  <b id="visitName"></b>
+  <div class="bb-btns">
+    <button id="vbTip" class="btn primary" data-t="tip"></button>
+    <button id="vbHome" class="btn" data-t="home"></button>
+  </div>
+</div>
+
 <nav id="bottombar">
   <button data-act="shop"><span>🛒</span><small data-t="shop"></small></button>
   <button data-act="build"><span>🔨</span><small data-t="build"></small></button>
   <button data-act="staff"><span>💀</span><small data-t="staff"></small></button>
+  <button data-act="online"><span>🌍</span><small data-t="online"></small></button>
   <button data-act="settings"><span>⚙️</span><small data-t="settings"></small></button>
 </nav>
 
@@ -43,6 +52,7 @@
 </div>
 
 <div id="toast"></div>
-<script src="game.js"></script>
+<script src="vendor/supabase.js"></script>
+<script type="module" src="game.js"></script>
 </body>
 </html>

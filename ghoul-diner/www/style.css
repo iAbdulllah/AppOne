@@ -107,3 +107,17 @@ canvas#game { position: fixed; inset: 0; width: 100vw; height: 100vh; display: b
 .card .info b { font-weight: 900; }
 #buildbar { border: 3px solid #1c1026; background: linear-gradient(#3a2560, #241540); box-shadow: 0 4px 0 #0c0614; }
 #toast { border: 3px solid #1c1026; background: linear-gradient(#fff3c4, #ffd25a); color: #1c1026; font-weight: 800; box-shadow: 0 4px 0 #0c0614; }
+
+/* ---------- 3D / online additions ---------- */
+#bottombar button:nth-child(4) { background: linear-gradient(#ff8ac2, #c93f86); }
+#bottombar button:nth-child(5) { background: linear-gradient(#b38bd9, #6b4a96); }
+.card .ic img { width: 56px; height: 56px; display: block; }
+.inp { flex: 1; min-width: 0; font: inherit; font-weight: 800; font-size: 15px; color: var(--text); background: #1c1026;
+  border: 3px solid #1c1026; border-radius: 12px; padding: 9px 12px; outline: none; user-select: text; -webkit-user-select: text; }
+.inp:focus { border-color: var(--accent); }
+#visitbar { position: fixed; left: 8px; right: 8px; bottom: calc(var(--bot) + 14px); display: flex; align-items: center; gap: 8px;
+  padding: 10px 12px; border: 3px solid #1c1026; border-radius: 16px; background: linear-gradient(#ff8ac2, #c93f86);
+  box-shadow: 0 4px 0 #0c0614; z-index: 5; }
+#visitbar[hidden] { display: none; }
+#visitbar b { flex: 1; text-shadow: 0 2px 0 #1c1026; font-weight: 900; }
+body.visiting #bottombar, body.visiting #buildbar { display: none; }
