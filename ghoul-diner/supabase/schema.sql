@@ -19,7 +19,8 @@ create policy "insert own diner" on public.diners for insert to authenticated wi
 drop policy if exists "update own diner" on public.diners;
 create policy "update own diner" on public.diners for update to authenticated using ((select auth.uid()) = id) with check ((select auth.uid()) = id);
 -- players may not edit their own like counter
-revoke insert, update on public.diners from anon, authenticated;
+revoke all on public.diners from anon, authenticated;
+grant select on public.diners to authenticated;
 grant insert (id, name, level, popularity, served, layout, updated_at) on public.diners to authenticated;
 grant update (name, level, popularity, served, layout, updated_at) on public.diners to authenticated;
 create index if not exists diners_popularity_idx on public.diners (popularity desc);
