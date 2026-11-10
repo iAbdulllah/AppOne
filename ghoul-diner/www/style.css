@@ -121,3 +121,24 @@ canvas#game { position: fixed; inset: 0; width: 100vw; height: 100vh; display: b
 #visitbar[hidden] { display: none; }
 #visitbar b { flex: 1; text-shadow: 0 2px 0 #1c1026; font-weight: 900; }
 body.visiting #bottombar, body.visiting #buildbar { display: none; }
+
+/* ---------- landscape layout (the Android app is locked to landscape) ---------- */
+@media (orientation: landscape) {
+  #hud { left: calc(env(safe-area-inset-left, 0px) + 10px); right: auto; width: min(520px, 62vw); top: calc(var(--top) + 6px); }
+  .pill { padding: 5px 11px; font-size: 14px; }
+  #bottombar { left: auto; top: 0; bottom: 0; right: 0; width: calc(env(safe-area-inset-right, 0px) + 84px);
+    flex-direction: column; justify-content: center; gap: 6px;
+    padding: 6px calc(env(safe-area-inset-right, 0px) + 8px) 6px 8px;
+    background: linear-gradient(90deg, transparent, rgba(10,6,18,.9) 45%); }
+  #bottombar button { flex: 0 1 62px; min-height: 0; padding: 3px 0 2px; border-radius: 14px; }
+  #bottombar button span { font-size: 21px; }
+  #bottombar button small { font-size: 11px; }
+  #buildbar { left: calc(env(safe-area-inset-left, 0px) + 10px); right: auto; bottom: calc(var(--bot) + 10px); max-width: 62vw; }
+  #visitbar { left: 50%; right: auto; transform: translateX(-50%); min-width: 320px; bottom: calc(var(--bot) + 10px); }
+  #modal { align-items: center; }
+  .sheet { max-height: 92vh; border-radius: 20px; border-bottom: 3px solid #1c1026; padding-bottom: 0; }
+  #mbody { grid-template-columns: 1fr 1fr; }
+  #mbody > .row, #mbody > .muted { grid-column: 1 / -1; }
+  .sheet { max-width: 720px; }
+  #toast { top: calc(var(--top) + 52px); }
+}

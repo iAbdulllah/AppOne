@@ -2,7 +2,7 @@
 import config from './config.js';
 
 let sb = null, me = null, lobby = null;
-let online = 0;
+let online = 1;
 const listeners = { tip: [], online: [] };
 
 export const enabled = () => !!(config.SUPABASE_URL && config.SUPABASE_ANON_KEY && window.supabase);
@@ -23,7 +23,7 @@ export async function init(name) {
     me = (await sb.auth.getUser()).data.user;
     lobby = sb.channel('lobby', { config: { presence: { key: me.id } } });
     lobby.on('presence', { event: 'sync' }, () => {
-      online = Object.keys(lobby.presenceState()).length;
+      online = Math.max(1, Object.keys(lobby.presenceState()).length);
       listeners.online.forEach(f => f(online));
     });
     lobby.on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'gifts', filter: `to_id=eq.${me.id}` },

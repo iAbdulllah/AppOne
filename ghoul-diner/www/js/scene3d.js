@@ -20,7 +20,7 @@ export function createScene(canvas) {
 
   const camera = new THREE.OrthographicCamera(-5, 5, 5, -5, 0.1, 200);
   const target = new THREE.Vector3(3, 0, 4);
-  const view = { zoom: 1.75, w: 6, h: 8 };
+  const view = { zoom: window.innerWidth > window.innerHeight ? 1.2 : 1.75, w: 6, h: 8 };
 
   // lights
   scene.add(new THREE.HemisphereLight(0xb8adff, 0x3a2a4a, 1.6));
@@ -69,7 +69,7 @@ export function createScene(canvas) {
     renderer.setSize(W, H, false);
     const aspect = W / H;
     const span = (view.w + view.h) * 0.75 + 1.5;
-    const vh = Math.max(span / aspect, span * 0.75);
+    const vh = Math.max(span / aspect, span * 0.62 + 3);
     camera.left = -vh * aspect / 2; camera.right = vh * aspect / 2; camera.top = vh / 2; camera.bottom = -vh / 2;
     camera.zoom = view.zoom;
     camera.updateProjectionMatrix();

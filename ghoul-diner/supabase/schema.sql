@@ -22,7 +22,7 @@ create policy "update own diner" on public.diners for update to authenticated us
 revoke all on public.diners from anon, authenticated;
 grant select on public.diners to authenticated;
 grant insert (id, name, level, popularity, served, layout, updated_at) on public.diners to authenticated;
-grant update (name, level, popularity, served, layout, updated_at) on public.diners to authenticated;
+grant update (id, name, level, popularity, served, layout, updated_at) on public.diners to authenticated;
 create index if not exists diners_popularity_idx on public.diners (popularity desc);
 
 create table if not exists public.gifts (
